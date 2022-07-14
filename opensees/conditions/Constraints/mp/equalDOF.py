@@ -418,13 +418,14 @@ def getRequestedNodalSpatialDim(xobj):
 			ndf = [2, 3] # standard
 		
 	else:
+		# @note: added the NDF=18 for PML_3D element 14/07/2008
 		ndm = 3
 		if UP:
-			ndf = [4, 3, 6] # user-defined goes first
+			ndf = [4, 3, 6, 18] # user-defined goes first
 		elif UR:
-			ndf = [6, 3, 4] # user-defined goes first
+			ndf = [6, 3, 4, 18] # user-defined goes first
 		else:
-			ndf = [3, 4, 6] # standard
+			ndf = [3, 4, 6, 18] # standard
 	
 	requested_node_dim_map = {}
 	condition = xobj.parent
