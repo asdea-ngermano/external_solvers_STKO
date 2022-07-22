@@ -407,7 +407,7 @@ def __check_model (write_node_not_assigned_boolean, node_file, pinfo, comment = 
 			print('Writing nodes belonging to geometries without element property assignment ...')
 			node_file.write('\n')
 			node_file.write('# nodes that belongs to geometries without element property assignment.\n'
-							'# note that by default their model is set to ndm=3 - ndf=3.')
+							'# note that by default their model is set to ndm=3 - ndf=3.\n')
 		# note: by default they are set to 3-3
 		pinfo.updateModelBuilder(3, 3)
 
