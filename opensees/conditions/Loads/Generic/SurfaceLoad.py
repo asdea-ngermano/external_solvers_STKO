@@ -714,9 +714,9 @@ def _evaluateTclLoad(pinfo, doc, geom, mesh_of_geom, edge, i, FT, is_partitioned
 				pinfo.out_file.write('\n')
 						
 		else:
-			pinfo.out_file.write('# Unknwon repartition Rule. Impossible to compute load on edge {} (face {} - geom {})\n'.format(edge.id,i,geom.id))
-			IO.write_cerr('WARNING: Unknwon repartition Rule. Impossible to compute load on edge {} (face {} - geom {})\n'.format(edge.id,i,geom.id))
-			raise Exception('Error: Unknwon repartition Rule. Impossible to compute load on edge edge {} (face {} - geom {})\n'.format(edge.id,i,geom.id))
+			pinfo.out_file.write('# Unknown repartition Rule. Impossible to compute load on edge {} (face {} - geom {})\n'.format(edge.id,i,geom.id))
+			IO.write_cerr('WARNING: Unknown repartition Rule. Impossible to compute load on edge {} (face {} - geom {})\n'.format(edge.id,i,geom.id))
+			raise Exception('Error: Unknown repartition Rule. Impossible to compute load on edge {} (face {} - geom {})\n'.format(edge.id,i,geom.id))
 		
 	return first_done, process_block_count
 
