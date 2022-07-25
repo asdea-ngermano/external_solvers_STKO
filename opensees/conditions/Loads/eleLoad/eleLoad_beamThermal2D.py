@@ -309,7 +309,7 @@ def writeTcl_eleLoad(pinfo, xobj):
 	y = y_at.quantityVector
 	
 	if len(y)!=2 and len(y)!=5 and len(y)!=9:
-		raise Exception('Error: invalid number of argument T and y = {}'.format(len(T)))
+		raise Exception('Error: invalid number of argument T and y = {}'.format(len(y)))
 	
 	doc = App.caeDocument()
 	
