@@ -1798,7 +1798,7 @@ def writeTcl_integrator(pinfo, xobj):
 			if selection_set is None:
 				raise Exception('Error: No selection set specified for the control node of the ParallelDisplacementControl integrator')
 			if len(selection_set.geometries) != 1:
-				raise Exception('Error: the selection set for ParallelDisplacementControl must contain 1 vertex (found {} geometries)'.format(len(selection_set.geometries)))
+				raise Exception('Error: the selection set for ParallelDisplacementControl must contain 1 geometry (found {} geometries)'.format(len(selection_set.geometries)))
 			for geometry_id, geometry_subset in selection_set.geometries.items():
 				mesh_of_geom = doc.mesh.meshedGeometries[geometry_id]
 				if len(geometry_subset.vertices) != 1: 
@@ -1837,7 +1837,7 @@ def writeTcl_integrator(pinfo, xobj):
 			if selection_set is None:
 				raise Exception('Error: No selection set specified for the control node of the DisplacementControl integrator')
 			if len(selection_set.geometries) != 1:
-				raise Exception('Error: the selection set for DisplacementControl must contain 1 vertex (found {} geometries)'.format(len(selection_set.geometries)))
+				raise Exception('Error: the selection set for DisplacementControl must contain 1 geometry (found {} geometries)'.format(len(selection_set.geometries)))
 			for geometry_id, geometry_subset in selection_set.geometries.items():
 				mesh_of_geom = doc.mesh.meshedGeometries[geometry_id]
 				if len(geometry_subset.vertices) != 1: 
