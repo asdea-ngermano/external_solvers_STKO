@@ -70,6 +70,10 @@ def makeXObjectMetaData():
 	at_section_fiber_equivalentPlasticStrain = mka_er('section.fiber.equivalentPlasticStrain')
 	at_section_fiber_cw = mka_er('section.fiber.cw')
 	
+	at_custom_crushPattern = mka(MpcAttributeType.Boolean, 'crushPattern', 'Custom Material', '')
+	at_custom_crackPattern = mka(MpcAttributeType.Boolean, 'crackPattern', 'Custom Material', '')
+	at_custom_equivalentTotalStrain = mka(MpcAttributeType.Boolean, 'equivalentTotalStrain', 'Custom Material', '')
+	
 	at_custom = mka(MpcAttributeType.StringVector, 'custom', 'custom element results', 
 		'You can define 1 string for each result not mentioned in the built-in ones')
 	
@@ -149,6 +153,10 @@ def makeXObjectMetaData():
 	xom.addAttribute(at_section_fiber_damage)
 	xom.addAttribute(at_section_fiber_equivalentPlasticStrain)
 	xom.addAttribute(at_section_fiber_cw)
+	
+	xom.addAttribute(at_custom_crushPattern)
+	xom.addAttribute(at_custom_crackPattern)
+	xom.addAttribute(at_custom_equivalentTotalStrain)
 	
 	xom.addAttribute(at_custom)
 	
@@ -338,6 +346,18 @@ def writeTcl(pinfo):
 	if len(custom) > 0:
 		pinfo.out_file.write(' \\\n')
 		pinfo.out_file.write('-E {}'.format(' '.join(['"{}"'.format(item) for item in custom])))
+	
+	if geta('crushPattern').boolean:
+		pinfo.out_file.write(' \\\n')
+		pinfo.out_file.write('-E "material.crushPattern"')
+	
+	if geta('crackPattern').boolean:
+		pinfo.out_file.write(' \\\n')
+		pinfo.out_file.write('-E "material.crackPattern"')
+	
+	if geta('equivalentTotalStrain').boolean:
+		pinfo.out_file.write(' \\\n')
+		pinfo.out_file.write('-E "material.equivalentTotalStrain"')
 	
 	################################################################
 	# write command for regions
